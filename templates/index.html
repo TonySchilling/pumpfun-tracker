@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crypto Dashboard</title>
+    <link rel="stylesheet" href="static/styles.css">
+</head>
+<body>
+    <header>
+        <!-- <div class="logo">CryptoTracker</div> -->
+        <img src="static/logo2.png" alt="logo" id="logo_pic">
+        <nav>
+            <ul>
+                <!-- <li><a href="#about">About</a></li>
+                <li><a href="#top-tokens">Top Tokens</a></li>
+                <li><a href="#future-plans">Future Plans</a></li> -->
+                <li><div id="about-button">ABOUT</div></li>
+                <li><div id="topTokens-button">TOP TOKENS</div></li>
+                <li><div id="futurePlans-button">FTURE PLANS</div></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <main>
+        <!-- <section class="blurb">
+            <h1>Welcome to analytics.fun</h1>
+            <p>Real-time alerts and data on the newest tokens</p>
+        </section> -->
+        <div id="popup" class="popup">
+            <div class="popup-content">
+                <span class="close-btn" id="popup-close">&times;</span>
+                <h2 id="popup-title">Popup Title</h2>
+                <p id="popup-text">This is your popup content.</p>
+            </div>
+        </div>
+        
+        <div class="data-field-named">
+            <p class="datapoint-name">NEW TOKEN ALERTS: </p>
+            <div id="alert-toggle"><p>OFF</p></div>
+        </div>
+        <div class="select-ribbon" id="main-tabs">
+            <div class="select-tab" id="main-tab-tokens">Tokens</div>
+            <!-- <div class="select-tab" id="main-tab-tokens">Data Playground...</div> -->
+            <div class="select-tab" style="display: none;">Details</div>
+            <!-- <div class="select-tab">Playground</div> -->
+        </div>
+
+        <div id="all-data-container">
+            <div class="content-container" id="data-page-tokens">
+                <section class="section" id="section-tokens">
+                    <h1>New Tokens</h1>
+                    <table id="table-tokens">
+                        <thead>
+                            <tr>
+                                
+                                <th>Name</th>
+                                <th>Symbol</th>
+                                <th>Market Cap</th>
+                                <th>Created</th>
+                                <th>Bonded</th>
+                                <th>Address</th>
+                            </tr>
+                        </thead>
+                        <tbody id="table-body-token">
+        
+                        </tbody>
+        
+                    </table>
+                </section>
+            </div>
+        </div>
+
+        <div class="content-container" style="display: none;">
+            <div class="select-ribbon" id="ribbon-token-details">
+                <div class="select-tab" id="button-overview">Overview</div>
+                <div class="select-tab" id="button-transactionSummary">Transaction Summary</div>
+                <div class="select-tab" id="button-transactionFull">Transactions Full</div>
+                <div class="select-tab" id="button-recentActivity">Recent Activity</div>
+                <div class="select-tab" id="button-socialAnalytics">Social Analytics</div>
+            </div>
+            <!-- Top Row: Left and Right Columns -->
+            <div id="detailed-page-overview">
+                <div class="top-row">
+                    <!-- Left Column -->
+                    <div class="left-column">
+                        <div class="data-field-named">
+                            <p class="datapoint-name">Name: </p>
+                            <p>SYMBOL</p>
+                        </div>
+                        
+                        <p>Description</p>
+                        <p>Created: 2024-12-12 12:00</p>
+                        <p>Bonded: 2025-01-25 11:24</p>
+                        <p>Bonding Time: 1d 2hr 1m</p>
+                        <br>
+                        <p>MC: $200000</p>
+                        <p>Transactions: 176</p>
+                        <p>Holders: 15</p>
+                        <p>Top 5 Holders: 50%</p>
+                        
+                    </div>
+            
+                    <div class="right-column">
+                        <img src="static/testimage.png" alt="Large Image" class="large-image">
+                        <div class="small-images">
+                            <img src="static/pflogo.png" alt="Small Image 1">
+                            <img src="static/dexlogo.png" alt="Small Image 2">
+                            <img src="static/solscanlogo.png" alt="Small Image 3">
+                        </div>
+                    </div>
+                </div>
+            
+                <!-- Bottom Container -->
+                <div class="bottom-container">
+                    <p>Additional Data Point 1</p>
+                    <p>Additional Data Point 2</p>
+                    <p>Additional Data Point 3</p>
+                </div>
+
+
+            </div>
+
+        </div>
+
+
+
+
+        <section class="section" id="section-tokenDetails" style="display: none;">
+            <div class="ribbon">
+                <h3>Token Details</h3>
+                <button id="button-back">Back</button>
+            </div>
+            <div class="ribbon" id="ribbon-token-details">
+                <div id="button-overview">Overview</div>
+                <div id="button-transactionSummary">Transaction Summary</div>
+                <div id="button-transactionFull">Transactions Full</div>
+                <div id="button-recentActivity">Recent Activity</div>
+                <div id="button-socialAnalytics">Social Analytics</div>
+            </div>
+            <div class="section" id="data-section-tokenDetails">
+                <div class="data-ribbon">
+                    <div class="section" id="overview-summary-section">
+                        <p>Name - SYMBOL</p>
+                        <p>Description: This is a description of a token and it's really long long long</p>
+                        <p>Created: 2024-12-12</p>
+                        <p>Bonded: 2024-12-13</p>
+                        <p>Bonding Time: 1d 24m</p>
+                        <p>MC: 100000</p>
+                        <p>Trn: 156</p>
+                        <p>Holders: 15</p>
+                    </div>
+                    <!-- <div class="section">
+                        <img src="static/testimage.png" alt="logo" id="testim">
+                    </div> -->
+                    <div class="section">
+                        <div class="section">
+                            <img src="static/testimage.png" alt="logo" id="testim">
+                        </div>
+                        <div class="data-ribbon">
+                            <p>pumpfun link</p>
+                            <p>solscan link</p>
+                            <p>dex link</p>
+
+                        </div>
+                        
+
+                    </div>
+                </div>
+                <div class="data-ribbon">
+                    <!-- <div class="section">
+                        <p>Created: 2024-12-12</p>
+                        <p>Bonded: 2024-12-13</p>
+                        <p>Bonding Time: 1d 24m</p>
+                    </div> -->
+                    <!-- <div class="section">
+                        <p>RED FLAGS</p>
+                        <p>Bonding Time</p>
+                        <p>Token Age</p>
+                        <p>Number of Holders</p>
+                        <p>Number of Trans</p>
+                    </div> -->
+                </div>
+                <!-- <div class="data-ribbon">
+                    <div class="section">
+                        <p>MC: 100000</p>
+                        <p>Trn: 156</p>
+                        <p>Holders: 15</p>
+                    </div>
+                </div> -->
+            </div>
+
+
+        </section>
+    </main>
+
+    <!-- <footer>
+        <p>please gamble responsibly.</p>
+    </footer> -->
+    <!-- <script>
+        const tokenData = {{ tokenData | tojson}};
+        window.tokenData=tokenData;
+    </script> -->
+    <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+</body>
+</html>

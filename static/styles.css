@@ -1,0 +1,364 @@
+/* styles.css */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap');
+body {
+    margin: 0;
+    font-family: Inter, sans-serif;
+    background-color: #202020;
+    color: #ffffff;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #1e1e2f;
+    padding: 1rem 2rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+header .logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #00aaff;
+}
+
+header nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 1.5rem;
+}
+
+header nav ul li a {
+    text-decoration: none;
+    color: #ffffff;
+    font-size: 1rem;
+    transition: color 0.3s;
+}
+
+header nav ul li a:hover {
+    color: #00aaff;
+}
+
+main {
+    text-align: center;
+    padding: 2rem;
+}
+
+.blurb h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: #00aaff;
+}
+
+.blurb p {
+    font-size: 1.2rem;
+    color: #b0b0b0;
+}
+
+#alert-toggle {
+    background-color: #ff00002d;
+    color: #ff0000a5;
+    border-radius: 5px;
+    padding: 2px;
+}
+
+#alert-toggle.alerting {
+    background-color: #51ff00a8;
+    color: #7fff44;
+    border-radius: 10px;
+}
+
+/* Basic styles for the popup */
+.popup {
+    display:none;
+    position: fixed; /* Fixed position */
+    top: 0; left: 0; right: 0; bottom: 0; /* Full-screen */
+    background-color: rgba(0, 0, 0, 0.215); /* Semi-transparent background */
+    z-index: 1000;
+    align-items: center; /* Align vertically center */
+    justify-content: center; /* Align horizontally center */
+}
+
+.popup-content {
+    background-color: rgb(53, 53, 53);
+    padding: 20px;
+    border-radius: 10px;
+    width: 60vw;
+    height: 45vh;
+    text-align: center;
+    position: relative;
+}
+
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+
+.table-section {
+    margin-top: 2rem;
+    padding: 1rem 2rem;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #1e1e2f8c;
+    color: #ffffff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+table th, table td {
+    padding: 1rem;
+    text-align: left;
+    border-bottom: 1px solid #333;
+}
+
+
+table th {
+    background-color: #2929408c;
+    font-weight: bold;
+}
+
+table tr:hover {
+    background-color: #33334d;
+}
+
+table tr.new-token {
+    background-color: #51ff00a8;
+}
+
+table tr.new-token:hover {
+    background-color: #4dff00;
+}
+
+/* footer {
+    text-align: center;
+    padding: 1rem 0;
+    background-color: #1e1e2f;
+    color: #b0b0b0;
+    font-size: 0.9rem;
+} */
+
+#logo_pic {
+    height: 50px; /* Adjust to your desired height */
+    width: auto;  /* Automatically adjust width to maintain aspect ratio */
+    /* margin-right: 20px; */
+    display: inline-block; /* Keeps it inline with other header elements */
+}
+
+#testim {
+    height: 25em; /* Adjust to your desired height */
+    width: auto;  /* Automatically adjust width to maintain aspect ratio */
+    /* margin-right: 20px; */
+    display: inline-block; /* Keeps it inline with other header elements */
+}
+
+.section {
+    width: 100%;
+    /* border: 3px solid #3498db; */
+    /* background-color: #00aaff; */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    /* justify-content: flex-start; */
+
+}
+
+
+.data-ribbon {
+    width: 80%;
+    /* color: #c50505; */
+    /* background-color: #c50505; */
+    /* border: 3px solid #34db58; */
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+    /* padding: 10px; */
+    /* align-items: flex-start; */
+
+}
+
+.ribbon {
+    width: 100%;
+    /* color: #c50505; */
+    /* background-color: #c50505; */
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    /* align-items: flex-start; */
+
+}
+
+.ribbon > div {
+    padding: 10px;
+    cursor: pointer;
+}
+
+.ribbon > div:hover {
+    background-color: #02f136;
+}
+
+
+#overview-summary-section {
+    background-color: #02020255;
+}
+
+/* Container for the tabs */
+.select-ribbon {
+    display: flex; /* Use Flexbox to align tabs */
+    justify-content: flex-start; /* Align tabs to the left */
+    /* background-color: #f1f1f1; */
+    border-bottom: 1px solid #ccc;
+    padding: 0 10px;
+}
+
+/* Individual tabs */
+.select-tab {
+    flex: 1; /* Allow tabs to grow and shrink equally */
+    padding: 10px 20px; /* Add padding for spacing */
+    text-align: center; /* Center the text inside the tab */
+    cursor: pointer; /* Change cursor to pointer on hover */
+    background-color: #00000030;
+    border: 1px solid #89898930;
+    border-bottom: none; /* Remove the bottom border to blend with the ribbon */
+    margin-right: 5px; /* Add spacing between tabs */
+    transition: background-color 0.3s ease; /* Smooth transition for hover effect */
+    border-radius: 10px;
+    max-width: 25em;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+/* Hover effect for tabs */
+.select-tab:hover {
+    background-color: #30303030;
+}
+
+/* Active tab styling */
+.select-tab.active {
+    background-color: #67676730;
+    border-bottom: 1px solid #fff; /* Hide the bottom border to blend with the content */
+    font-weight: bold; /* Make the active tab text bold */
+}
+
+
+
+/* Main Content Container */
+.content-container {
+    width: 90%;
+    /* max-width: 1200px; */
+    margin: 0 auto;
+    padding: 20px;
+    box-sizing: border-box; /* Include padding in width calculation */
+}
+
+/* Top Row: Left and Right Columns */
+.top-row {
+    display: flex; /* Use Flexbox for layout */
+    gap: 50px; /* Space between left and right columns */
+    margin-bottom: 20px;
+
+}
+
+/* Left Column */
+.left-column {
+    flex: 1; /* Take up available space */
+    background-color: #dfdfdf15; /* Light background */
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(42, 42, 42, 0.228);
+    text-align: left;
+}
+
+.left-column p {
+    margin: 10px 0; /* Spacing between data points */
+    font-size: 16px; /* Font size */
+    color: #ffffff; /* Text color */
+}
+
+/* Right Column */
+.right-column {
+    flex: 2; /* Take up twice as much space as the left column */
+    display: flex;
+    flex-direction: column; /* Stack items vertically */
+    gap: 10px; /* Space between large image and small images */
+
+}
+
+/* Large Image */
+.large-image {
+    width: 50%;
+    /* width: 20em; */
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 8px; /* Rounded corners */
+}
+
+/* Small Images */
+.small-images {
+    display: flex; /* Arrange small images horizontally */
+    gap: 10px; /* Space between small images */
+    
+}
+
+.small-images img {
+    width: 2em; /* Each small image takes up 30% of the container */
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 8px; /* Rounded corners */
+}
+
+/* Bottom Container */
+.bottom-container {
+    background-color: #dfdfdf15; /* Light background */
+    padding: 15px; /* Add padding */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    text-align: left;
+}
+
+.bottom-container p {
+    margin: 10px 0; /* Spacing between data points */
+    font-size: 16px; /* Font size */
+    color: #ffffff; /* Text color */
+}
+
+.red-flag {
+    font-style: italic;
+    color: #ff0000;
+}
+
+.data-field-named {
+    display: flex;
+
+}
+
+.datapoint-name {
+    font-weight: bold;
+    padding-right: 10px;
+}
+
+.large-text {
+    /* font-style: italic; */
+    font-weight: bold;
+    font-size: 50px;
+    color: #ffffff;
+}
+.large-text2 {
+    /* font-style: italic; */
+    font-weight: bold;
+    font-size: 30px;
+    color: #ffffff;
+}
+
+/* .x_button {
+
+} */

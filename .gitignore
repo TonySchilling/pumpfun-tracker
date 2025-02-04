@@ -1,0 +1,15 @@
+ 
+__pycache__/
+env/
+venv/
+*.sqlite3
+*.pyc
+instance/
+*.log
+test.py
+test.txt
+testtest.csv
+tokenData.js
+dataTest.txt
+pump_fun.db
+pump_fun_database.db
