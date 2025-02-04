@@ -6,7 +6,7 @@ import datetime
 
 def updateTokensTableJson(data):
 
-    conn = sqlite3.connect("appDatabase.db.db")
+    conn = sqlite3.connect("appDatabase.db")
     cursor = conn.cursor()
 
     for row in data:
@@ -17,7 +17,7 @@ def updateTokensTableJson(data):
     conn.close()
 
 def updateTransactionsTableJson(data):
-    conn = sqlite3.connect("appDatabase.db.db")
+    conn = sqlite3.connect("appDatabase.db")
     cursor = conn.cursor()
 
     for d in data:

@@ -79,11 +79,19 @@ def getTokensTransactions(address):
     tf['absTokenAmount']=abs(tf['tokenAmount'])
     return tf
 
+
+
 @app.route('/')
 def home():
     df=getTokensDf()
     data = df.to_dict(orient='records')[:5]
     return render_template('index.html', tokenData=data)
+
+@app.route('/createTables')
+def createTables():
+    createTokenTable(databaseName="appDatabase.db")
+    createTransactionTable(databaseName="appDatabase.db")
+    return 
 
 @app.route('/tokens')
 def tokens():
@@ -107,9 +115,9 @@ def token_details(token_address):
     print(f'THIS IS THE TOKEN ADDRESS!!! {token_address}')
     # return render_template('token_details.html')
     tf = getTokensTransactions(token_address) 
-    transactionData = tf.to_dict(orient='records')
+    transactionData = tf.head(20).to_dict(orient='records')
     gf=aggregateTransactions(tf)
-    traderData=gf.to_dict(orient='records')
+    traderData=gf.head(50).to_dict(orient='records')
     df = getSingleTokenData(token_address)
     tokenData = df.to_dict(orient='records')
 

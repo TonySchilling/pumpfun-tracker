@@ -5,7 +5,7 @@ import datetime
 
 
 #Drop table
-def droptTable(databaseName="appDatabase.db.db", tableName='tokens'):
+def droptTable(databaseName="appDatabase.db", tableName='tokens'):
     conn = sqlite3.connect(databaseName)
     cursor = conn.cursor()
 
@@ -16,7 +16,7 @@ def droptTable(databaseName="appDatabase.db.db", tableName='tokens'):
     conn.close()
 
 #Create table right way
-def createTokenTable(databaseName="appDatabase.db.db"):
+def createTokenTable(databaseName="appDatabase.db"):
     conn = sqlite3.connect(databaseName)
     cursor = conn.cursor()
 
@@ -48,7 +48,7 @@ def createTokenTable(databaseName="appDatabase.db.db"):
     conn.close()
 
 
-def updateTokensTable(token_data, databaseName="appDatabase.db.db"):
+def updateTokensTable(token_data, databaseName="appDatabase.db"):
     conn = sqlite3.connect(databaseName)
     cursor = conn.cursor()
 
@@ -90,7 +90,7 @@ def updateTokensTable(token_data, databaseName="appDatabase.db.db"):
     conn.close()
 
 #Create table right way
-def createTransactionTable(databaseName="appDatabase.db.db"):
+def createTransactionTable(databaseName="appDatabase.db"):
     conn = sqlite3.connect(databaseName)
     cursor = conn.cursor()
 
@@ -113,7 +113,7 @@ def createTransactionTable(databaseName="appDatabase.db.db"):
     conn.commit()
     conn.close()
 
-def updateTransactionsTable(transactions, databaseName="appDatabase.db.db"):
+def updateTransactionsTable(transactions, databaseName="appDatabase.db"):
     conn = sqlite3.connect(databaseName)
     cursor = conn.cursor()
 
@@ -128,6 +128,16 @@ def updateTransactionsTable(transactions, databaseName="appDatabase.db.db"):
     conn.commit()
     conn.close()
 
+def reinitializeTable(databaseName="appDatabase.db"):
+    droptTable(databaseName, 'tokens')
+    droptTable(databaseName, 'transactions')
+    createTokenTable(databaseName="appDatabase.db")
+    createTransactionTable(databaseName="appDatabase.db")
+    conn=sqlite3.connect(databaseName)
+    cursor=conn.cursor()
+    cursor.execute('VACUUM')
+    conn.commit()
+    conn.close()
 
 #REFORMATTING
 
