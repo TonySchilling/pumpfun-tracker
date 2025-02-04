@@ -5,7 +5,7 @@ import datetime
 
 
 #Drop table
-def droptTable(databaseName="pump_fun_database.db", tableName='tokens'):
+def droptTable(databaseName="appDatabase.db.db", tableName='tokens'):
     conn = sqlite3.connect(databaseName)
     cursor = conn.cursor()
 
@@ -16,7 +16,7 @@ def droptTable(databaseName="pump_fun_database.db", tableName='tokens'):
     conn.close()
 
 #Create table right way
-def createTokenTable(databaseName="pump_fun_database.db"):
+def createTokenTable(databaseName="appDatabase.db.db"):
     conn = sqlite3.connect(databaseName)
     cursor = conn.cursor()
 
@@ -48,7 +48,7 @@ def createTokenTable(databaseName="pump_fun_database.db"):
     conn.close()
 
 
-def updateTokensTable(token_data, databaseName="pump_fun_database.db"):
+def updateTokensTable(token_data, databaseName="appDatabase.db.db"):
     conn = sqlite3.connect(databaseName)
     cursor = conn.cursor()
 
@@ -90,7 +90,7 @@ def updateTokensTable(token_data, databaseName="pump_fun_database.db"):
     conn.close()
 
 #Create table right way
-def createTransactionTable(databaseName="pump_fun_database.db"):
+def createTransactionTable(databaseName="appDatabase.db.db"):
     conn = sqlite3.connect(databaseName)
     cursor = conn.cursor()
 
@@ -113,7 +113,7 @@ def createTransactionTable(databaseName="pump_fun_database.db"):
     conn.commit()
     conn.close()
 
-def updateTransactionsTable(transactions, databaseName="pump_fun_database.db"):
+def updateTransactionsTable(transactions, databaseName="appDatabase.db.db"):
     conn = sqlite3.connect(databaseName)
     cursor = conn.cursor()
 
