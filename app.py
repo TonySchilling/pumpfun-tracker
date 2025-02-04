@@ -138,8 +138,9 @@ def update_database():
         return jsonify({'error':'No data received'}), 400
     
     try:
-        updateTransactionsTable(data['transaction'], databaseName=database)
-        updateTokensTable(data['token'], databaseName=database)
+        # updateTransactionsTable(data['transaction'], databaseName=database)
+        # updateTokensTable(data['token'], databaseName=database)
+        updateBothTables(data['token'], data['transaction'])
         with open('dataTest.txt', 'w') as f:
             f.write(json.dumps(data))
         # updateTokensTableJson(data['token'])
@@ -156,5 +157,12 @@ def existing_tokens():
 
     return jsonify(data)
 
-# if __name__=='__main__':
-#     app.run(debug=True)
+@app.route('/resetDatabase')
+def resetDatabase():
+    reinitializeTable(databaseName="appDatabase.db")
+
+    return jsonify({'message':'DB Reset'}), 200
+
+
+if __name__=='__main__':
+    app.run(debug=True)

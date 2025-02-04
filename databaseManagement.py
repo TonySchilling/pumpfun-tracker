@@ -109,7 +109,6 @@ def createTransactionTable(databaseName="appDatabase.db"):
     )
     """)
 
-
     conn.commit()
     conn.close()
 
@@ -125,6 +124,56 @@ def updateTransactionsTable(transactions, databaseName="appDatabase.db"):
 
 
     cursor.executemany(sql, transactions)
+    conn.commit()
+    conn.close()
+
+def updateBothTables(token_data, transactions, databaseName="appDatabase.db"):
+    conn = sqlite3.connect(databaseName)
+    cursor = conn.cursor()
+    sql1 = """
+        INSERT INTO transactions (blockTime, owner, tradeType, sol, tokenAmount, mint, hash)
+        VALUES (:timestamp, :user, :is_buy, :sol_amount, :token_amount, :mint, :signature)
+        ON CONFLICT(blockTime, owner, tradeType, sol, tokenAmount, mint, hash) DO NOTHING;
+    """
+
+    cursor.executemany(sql1, transactions)
+
+    sql2 = """
+        INSERT INTO tokens (
+            token_address, name, symbol, description, image_url, metadata_uri, twitter, telegram, 
+            bonding_curve, associated_bonding_curve, creator, created_timestamp, 
+            last_trade_timestamp, raydium_pool, virtual_sol_reserves, virtual_token_reserves, 
+            total_supply, website, usd_market_cap
+        ) 
+        VALUES (
+            :mint, :name, :symbol, :description, :image_uri, :metadata_uri, :twitter, :telegram, 
+            :bonding_curve, :associated_bonding_curve, :creator, :created_timestamp, 
+            :last_trade_timestamp, :raydium_pool, :virtual_sol_reserves, :virtual_token_reserves, 
+            :total_supply, :website, :usd_market_cap
+        ) 
+        ON CONFLICT(token_address) DO UPDATE SET 
+            name=excluded.name,
+            symbol=excluded.symbol,
+            description=excluded.description,
+            image_url=excluded.image_url,
+            metadata_uri=excluded.metadata_uri,
+            twitter=excluded.twitter,
+            telegram=excluded.telegram,
+            bonding_curve=excluded.bonding_curve,
+            associated_bonding_curve=excluded.associated_bonding_curve,
+            creator=excluded.creator,
+            created_timestamp=excluded.created_timestamp,
+            last_trade_timestamp=excluded.last_trade_timestamp,
+            raydium_pool=excluded.raydium_pool,
+            virtual_sol_reserves=excluded.virtual_sol_reserves,
+            virtual_token_reserves=excluded.virtual_token_reserves,
+            total_supply=excluded.total_supply,
+            website=excluded.website,
+            usd_market_cap=excluded.usd_market_cap;
+    """
+    cursor.executemany(sql2, token_data)
+
+
     conn.commit()
     conn.close()
 

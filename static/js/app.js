@@ -1,11 +1,3 @@
-// console.log(window.tokenData);
-
-// const table=document.getElementById('tokenTable');
-
-// static/js/app.js
-
-var mode = 'token';
-
 const alertSound = new Audio('static/calmAlert.wav')
 
 class tokenData {
@@ -52,6 +44,7 @@ class AppManager {
         
         if (this.newTokens.length>0 & this.alerting===true) {
             this.audio.play().catch(error => console.error("Error playing sound:", error));
+            console.log("played alert sound");
         }
     }
 }
@@ -89,7 +82,6 @@ function createElementAndAppend(parent, tagName, element_classes=null, element_i
 
     }
 
-
     parent.appendChild(element);
 
     return element;
@@ -124,36 +116,6 @@ function updateInfoPopup(message) {
     popup.style.display="flex";
 
 }
-
-
-function changesSections(newMode, section) {
-    mode=newMode;
-    const sectionNames = ['tokens', 'tokenDetails']
-    sectionNames.forEach(name => {
-        document.getElementById(`section-${name}`).style.display="none";
-  
-      })
-      document.getElementById(`section-${section}`).style.display="flex";
-}
-
-// function getTokenDetails(tokenAddress) {
-//     changesSections('token_details', 'tokenDetails');
-//     fetch(`/token/${tokenAddress}`)
-//     .then(response => response.json())  // Parse the JSON response
-//     .then(data => {
-//         console.log('Found token details');
-//         console.log(data);  // Check the data in the console
-        
-//         // Example of populating the table with token data
-//         const tableBody = document.querySelector("tbody");
-
-
-//     })
-//     .catch(error => {
-//         console.error('Error fetching token data:', error);
-//     });
-
-// }
 
 
 const formatter = new Intl.DateTimeFormat('en-US', {
@@ -227,7 +189,7 @@ async function fetchTokenData(tokenAddress) {
 }
 
 function getTokenList() {
-    console.log('checked for tokens');
+    console.log(`Checked for tokens ${new Date()}`);
     fetch('/tokens')
         .then(response => response.json())  // Parse the JSON response
         .then(data => {
@@ -279,7 +241,6 @@ function getTokenList() {
                 row.addEventListener('click', () => {
                     row.classList.remove('new-token');
                     const tokenAddress = token.token_address;
-                    mode='tokenDetails';
                     openTokenData(tokenAddress);
                 })
 
